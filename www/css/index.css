@@ -628,7 +628,7 @@
 }
 html.windowsPhone .logo,
 html.windowsPhone .menu.title {
-  max-width: calc(4%);
+  max-width: calc(100% - 96px);
 }
 html.windowsPhone .menu.title {
   margin-left: -50%;
@@ -1730,7 +1730,7 @@ body.servizi .scrollable {
   visibility: visible;
 }
 .iscrizione {
-  background-color: #FFFFF0!important;
+  background-color: #FFFFF0 !important;
 }
 .centrata {
   margin: auto;
@@ -1793,7 +1793,7 @@ body.home .ui.menu.fixed .button.toggle_sidebar {
   background: #1f6a7d;
 }
 .evidenziato {
-  background-color: #33ADCC!important;
+  background-color: #33ADCC !important;
 }
 .posizione .ui.inverted.attached.segment {
   border-color: #D4D4D5;

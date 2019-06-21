@@ -1,1 +1,78 @@
-<div id="schede" class="ui equal width center aligned padded grid"><div class="row bordered buttons"><div class="eight wide column"><div class="ui button fluid descrizione">Descrizione</div></div><div class="eight wide column"><div class="ui button fluid promozioni">Promozioni</div></div><div ng-if="!negozio.allegato" class="eight wide column"><div ng-click="mostra_sezione('posizione', negozio.id);" class="ui button fluid posizione">Posizione</div></div><div ng-if="negozio.allegato" class="eight wide column"><div ng-click="mostra_sezione('menu', negozio.id);" class="ui button fluid posizione">Menu'</div></div><div class="eight wide column"><div class="ui button fluid contatti">Contatti</div></div></div></div><div id="sopra"><div data-tab="descrizione" class="ui tab active"><div class="ui fluid image"><div class="ui bottom teal attached label">{{negozio.categorie[0].nome}}</div><img ng-src="http://app.bodiocenter.com{{negozio.fotoThumb}}" ng-if="negozio.fotoThumb" class="foto negozio"/><img ng-src="http://app.bodiocenter.com{{negozio.logo}}" ng-if="!negozio.fotoThumb &amp;&amp; negozio.logo" class="foto negozio"/></div></div><div data-tab="vuoto" class="ui tab"></div></div><div id="sotto"><div data-tab="descrizione" class="ui tab active"><p ng-bind-html="negozio.descrizione|linky:'_blank'"></p></div><div data-tab="mappa" class="ui tab"><div class="ui segment"><div style="white-space: pre-wrap;">{{negozio.indirizzo}}</div></div></div><div data-tab="promozioni" class="ui tab"><div class="ui segment no-padding"><div class="ui divided list no-margin-bottom"><div ng-show="!promozioni.length" class="item"><div class="content"><div class="header">Nessuna promozione attiva in questo momento</div></div></div><div ng-repeat="promozione in promozioni| orderBy: 'data_fine' " ui-sref="promozioneDetail({id:{{promozione.id}}})" ng-click="" ng-class="{totem:promozione.cat_promo=='Solo per totem'}" class="item"><img ng-src="http://app.bodiocenter.com{{promozione.immagineThumb}}" ng-if="promozione.immagineThumb" class="ui image"/><img ng-src="http://app.bodiocenter.com{{promozione.negozio.fotoThumb}}" ng-if="!promozione.immagineThumb &amp;&amp; promozione.negozio.fotoThumb" class="ui image"/><div class="content"><div class="header">{{promozione.nome}}</div><div class="small">dal {{promozione.data_inizio|formattaData}} al {{promozione.data_fine|formattaData}}</div></div><div class="compact ui icon button"><i class="chevron right icon"></i></div></div></div><div class="ui segment no-margin-top"><div class="ui toggle checkbox preferito"><label>Notifica promozioni <br><small>se attivate, le promozioni di questo negozio appariranno nel menu' dell'app</small></label><input type="checkbox"/></div></div></div></div><div data-tab="contatti" class="ui tab"><div class="senza linee"><div ng-if="!negozio.web &amp;&amp; !negozio.telefono &amp;&amp; !negozio.facebook &amp;&amp; !negozio.twitter &amp;&amp; !negozio.google &amp;&amp; !negozio.pinterest &amp;&amp; !negozio.instagram" class="ui attached basic segment"><p>Questo negozio al momento non fornisce un contatto diretto.</p></div><div ng-if="negozio.web" class="ui attached basic segment"><a ng-click="apriUrl(negozio.web);" class="fluid ui blue labeled icon button">Visita il sito web <br><div class="small">{{negozio.web}}</div><i class="globe icon"></i></a></div><div ng-if="negozio.telefono" class="ui attached basic segment"><a ng-click="apriUrl('tel:{{negozio.telefono|pulisciTelefono}}')" class="fluid ui blue labeled icon button">Chiama l'azienda <br><div class="small">{{negozio.telefono}}</div><i class="call icon"></i></a></div><div ng-if="negozio.facebook" class="ui attached basic segment"><a ng-click="apriUrl(negozio.facebook);" class="fluid ui labeled icon facebook button">Pagina facebook<br><i class="facebook icon"></i></a></div><div ng-if="negozio.twitter" class="ui attached basic segment"><a ng-click="apriUrl(negozio.twitter);" class="fluid ui labeled icon twitter button">Account twitter<br><i class="twitter icon"></i></a></div><div ng-if="negozio.google" class="ui attached basic segment"><a ng-click="apriUrl(negozio.google);" class="fluid ui labeled icon google plus button">Pagina google plus<br><i class="google plus icon"></i></a></div><div ng-if="negozio.pinterest" class="ui attached basic segment"><a ng-click="apriUrl(negozio.pinterest);" class="fluid ui labeled icon pinterest button">Account pinterest<br><i class="pinterest p icon"></i></a></div><div ng-if="negozio.instagram" class="ui attached basic segment"><a ng-click="apriUrl(negozio.instagram);" class="fluid ui labeled icon instagram button">Account instagram<br><i class="instagram icon"></i></a></div></div></div></div>
+
+<div class="ui equal width center aligned padded grid" id="schede">
+  <div class="row bordered buttons">
+    <div class="eight wide column">
+      <div class="ui button fluid descrizione">Descrizione</div>
+    </div>
+    <div class="eight wide column">
+      <div class="ui button fluid promozioni">Promozioni</div>
+    </div>
+    <div class="eight wide column" ng-if="!negozio.allegato">
+      <div class="ui button fluid posizione" ng-click="mostra_sezione('posizione', negozio.id);">Posizione</div>
+    </div>
+    <div class="eight wide column" ng-if="negozio.allegato">
+      <div class="ui button fluid posizione" ng-click="mostra_sezione('menu', negozio.id);">Menu'</div>
+    </div>
+    <div class="eight wide column">
+      <div class="ui button fluid contatti">Contatti</div>
+    </div>
+  </div>
+</div>
+<div id="sopra">
+  <div class="ui tab active" data-tab="descrizione">
+    <div class="ui fluid image">
+      <div class="ui bottom teal attached label">{{negozio.categorie[0].nome}}</div><img class="foto negozio" ng-src="http://app.bodiocenter.com{{negozio.fotoThumb}}" ng-if="negozio.fotoThumb"/><img class="foto negozio" ng-src="http://app.bodiocenter.com{{negozio.logo}}" ng-if="!negozio.fotoThumb &amp;&amp; negozio.logo"/>
+    </div>
+  </div>
+  <div class="ui tab" data-tab="vuoto"></div>
+</div>
+<div id="sotto">
+  <div class="ui tab active" data-tab="descrizione">
+    <p ng-bind-html="negozio.descrizione|linky:'_blank'"></p>
+  </div>
+  <div class="ui tab" data-tab="mappa">
+    <div class="ui segment">
+      <div style="white-space: pre-wrap;">{{negozio.indirizzo}}</div>
+    </div>
+  </div>
+  <div class="ui tab" data-tab="promozioni">
+    <div class="ui segment no-padding">
+      <div class="ui divided list no-margin-bottom">
+        <div class="item" ng-show="!promozioni.length">
+          <div class="content">
+            <div class="header">Nessuna promozione attiva in questo momento</div>
+          </div>
+        </div>
+        <div class="item" ng-repeat="promozione in promozioni| orderBy: 'data_fine' " ui-sref="promozioneDetail({id:{{promozione.id}}})" ng-click="" ng-class="{totem:promozione.cat_promo=='Solo per totem'}"><img class="ui image" ng-src="http://app.bodiocenter.com{{promozione.immagineThumb}}" ng-if="promozione.immagineThumb"/><img class="ui image" ng-src="http://app.bodiocenter.com{{promozione.negozio.fotoThumb}}" ng-if="!promozione.immagineThumb &amp;&amp; promozione.negozio.fotoThumb"/>
+          <div class="content">
+            <div class="header">{{promozione.nome}}</div>
+            <div class="small">dal {{promozione.data_inizio|formattaData}} al {{promozione.data_fine|formattaData}}</div>
+          </div>
+          <div class="compact ui icon button"><i class="chevron right icon"></i></div>
+        </div>
+      </div>
+      <div class="ui segment no-margin-top">
+        <div class="ui toggle checkbox preferito">
+          <label>Notifica promozioni <br><small>se attivate, le promozioni di questo negozio appariranno nel menu' dell'app</small></label>
+          <input type="checkbox"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui tab" data-tab="contatti">
+    <div class="senza linee">
+      <div class="ui attached basic segment" ng-if="!negozio.web &amp;&amp; !negozio.telefono &amp;&amp; !negozio.facebook &amp;&amp; !negozio.twitter &amp;&amp; !negozio.google &amp;&amp; !negozio.pinterest &amp;&amp; !negozio.instagram">
+        <p>Questo negozio al momento non fornisce un contatto diretto.</p>
+      </div>
+      <div class="ui attached basic segment" ng-if="negozio.web"><a class="fluid ui blue labeled icon button" ng-click="apriUrl(negozio.web);">Visita il sito web <br>
+          <div class="small">{{negozio.web}}</div><i class="globe icon"></i></a></div>
+      <div class="ui attached basic segment" ng-if="negozio.telefono"><a class="fluid ui blue labeled icon button" ng-click="apriUrl('tel:{{negozio.telefono|pulisciTelefono}}')">Chiama l'azienda <br>
+          <div class="small">{{negozio.telefono}}</div><i class="call icon"></i></a></div>
+      <div class="ui attached basic segment" ng-if="negozio.facebook"><a class="fluid ui labeled icon facebook button" ng-click="apriUrl(negozio.facebook);">Pagina facebook<br><i class="facebook icon"></i></a></div>
+      <div class="ui attached basic segment" ng-if="negozio.twitter"><a class="fluid ui labeled icon twitter button" ng-click="apriUrl(negozio.twitter);">Account twitter<br><i class="twitter icon"></i></a></div>
+      <div class="ui attached basic segment" ng-if="negozio.google"><a class="fluid ui labeled icon google plus button" ng-click="apriUrl(negozio.google);">Pagina google plus<br><i class="google plus icon"></i></a></div>
+      <div class="ui attached basic segment" ng-if="negozio.pinterest"><a class="fluid ui labeled icon pinterest button" ng-click="apriUrl(negozio.pinterest);">Account pinterest<br><i class="pinterest p icon"></i></a></div>
+      <div class="ui attached basic segment" ng-if="negozio.instagram"><a class="fluid ui labeled icon instagram button" ng-click="apriUrl(negozio.instagram);">Account instagram<br><i class="instagram icon"></i></a></div>
+    </div>
+  </div>
+</div>

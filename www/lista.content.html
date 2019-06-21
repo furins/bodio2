@@ -1,1 +1,19 @@
-<div class="ui segment"><div class="ui form"><div class="ten wide field ui action input"><input placeholder="Aggiungi prodotto" id="prodotto" ng-model="formProdotto"/><button ng-click="addProdotto();" class="ui button">Aggiungi</button></div></div><div class="ui divided list"><div ng-show="!lista.length" class="item"><div class="header">Nessun prodotto inserito</div></div><div ng-repeat="prodotto in lista| orderBy: 'toString()' " class="item"><div class="ui right floated"><a ng-click="removeProdotto(prodotto);" class="ui button">acquistato!</a></div><div class="header">{{prodotto}}</div></div></div></div><div class="overlay-footer-spesa basso"><img src="img/sfondo_spesa.png"/></div>
+
+<div class="ui segment">
+  <div class="ui form">
+    <div class="ten wide field ui action input">
+      <input placeholder="Aggiungi prodotto" id="prodotto" ng-model="formProdotto"/>
+      <button class="ui button" ng-click="addProdotto();">Aggiungi</button>
+    </div>
+  </div>
+  <div class="ui divided list">
+    <div class="item" ng-show="!lista.length">
+      <div class="header">Nessun prodotto inserito</div>
+    </div>
+    <div class="item" ng-repeat="prodotto in lista| orderBy: 'toString()' ">
+      <div class="ui right floated"><a class="ui button" ng-click="removeProdotto(prodotto);">acquistato!</a></div>
+      <div class="header">{{prodotto}}</div>
+    </div>
+  </div>
+</div>
+<div class="overlay-footer-spesa basso"><img src="img/sfondo_spesa.png"/></div>

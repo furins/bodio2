@@ -1,0 +1,151 @@
+// questo file contiene le variabili e i mixin che determinano lo stile dell'app
+body.home.pushable>.pusher {
+    background: url(../img/bg.png) 50% 50% no-repeat #fff;
+    background-size: cover;
+}
+.bottoni_sotto {
+    color: #fff;
+}
+body.home .ui.menu.fixed .button.toggle_sidebar {
+    background-color: #544F4B;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.5);
+    border-radius: 0px;
+    width: 40px;
+    height: 39px;
+    line-height: 19px;
+    margin: 6px 11px;
+}
+
+.ui.divided.grid:not([class*="vertically divided"])>.column:not(.row) {
+    box-shadow: -1px 0 0 0 rgba(255,255,255,.2);
+}
+.home .logo, .empty .logo img {
+    width: 60%;
+    height: auto;
+    margin-top: 0;
+    max-width: 400px;
+}
+
+.ui.inverted.menu {
+    background: #1f6a7d;
+}
+
+.evidenziato {
+    background-color: #33ADCC!important;
+}
+
+
+.posizione .ui.inverted.attached.segment {
+    border-color: #D4D4D5;
+}
+
+.right.label {
+    float: right;
+}
+
+.chisiamo {
+    width: 80vw;
+    max-width: 1500px;
+    margin-right: 2vw;
+}
+
+.float-left {
+    float: left;
+    clear: left;
+}
+.float-right {
+    float: right;
+    clear: right;
+}
+
+.ui.vertical.buttons.float-right {
+    width: 18vw;
+}
+
+.card {
+    width: 314px;
+    height: 483px;
+    background-image: url(../img/card_fronte.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.daticard {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    z-index: 30;
+    position: absolute;
+    top: 250px;
+    left: 5px;
+}
+
+#qrcode {
+    border: 7px solid white;
+    position: absolute;
+    z-index: 33;
+    top: 114px;
+    left: 166px;
+    img {
+        height: 128px;
+    }
+}
+
+
+.come_raggiungerci .card {
+    height: auto;
+}
+
+.come_raggiungerci > p {
+    height: 10px;
+}
+
+.dcard {
+    width: 50%;
+}
+
+.dcard_container {
+    color: black;
+    text-align: center;
+    display: block;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+.solocard{
+    background-color: #fff1bf;
+}
+
+.ui.segment.iscrizione {
+    background: transparent!important;
+    box-shadow: none;
+    border: none;
+}
+
+img.dcard {
+    -webkit-filter: drop-shadow(2px 2px 3px #777);
+    filter: drop-shadow(2px 2px 3px #777);
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.ui.form .field>label[for="capture"] {
+    width: 100%;
+    padding: 11px 21px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background-color: green;
+    display: inline-block;
+}
+

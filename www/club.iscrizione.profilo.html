@@ -1,1 +1,56 @@
-<div class="scrollable"><div class="ui clearing segment aggiornamento"><form class="ui form"><div ng-if="!nodata" class="field"><div for="azienda" class="label">Azienda per cui si lavora*</div><input placeholder="azienda*" ng-model="aggiornamento.azienda" name="azienda" id="azienda"/></div><div ng-if="!nodata" class="field"><div for="nome" class="label">Nome*</div><input placeholder="Nome*" ng-model="aggiornamento.nome" name="nome" id="nome"/></div><div ng-if="!nodata" class="field"><div for="cognome" class="label">Cognome*</div><input placeholder="Cognome*" ng-model="aggiornamento.cognome" name="cognome" id="cognome"/></div><div ng-if="!nodata" class="field"><div for="telefono" class="label">Num di telefono*</div><input placeholder="Num di telefono" ng-model="aggiornamento.telefono" name="telefono" id="telefono"/></div><div ng-if="!nodata" class="field"><div for="email" class="label">E-mail*</div><input placeholder="E-mail" ng-model="aggiornamento.email" name="email" id="email"/></div><div ng-if="!nodata" class="field"><div for="indirizzo" class="label">Indirizzo*</div><input placeholder="Indirizzo*" ng-model="aggiornamento.indirizzo" name="indirizzo" id="indirizzo"/></div><div ng-if="!nodata" class="field"><div for="cap" class="label">CAP*</div><input placeholder="CAP*" ng-model="aggiornamento.cap" name="cap" id="cap"/></div><div ng-if="!nodata" class="field"><div for="citta" class="label">Città*</div><input placeholder="Città*" ng-model="aggiornamento.citta" name="citta" id="citta"/></div><div ng-if="!nodata" class="field"><div for="provincia" class="label">Provincia*</div><select ng-model="aggiornamento.provincia" name="provincia" id="provincia" ng-options="item.id as item.prov for item in province" class="ui dropdown"></select></div><div class="field"><div ng-if="validazione" class="ui icon red message"> <i class="warning sign icon"></i><div class="content"><div class="header">Si è verificato un errore</div><p>{{validazione}}</p></div></div></div><div class="field"><button ng-click="aggiornati();" ng-if="!nodata" ng-class="{loading:loading}" class="ui right floated primary button">Aggiorna dati</button><button ng-if="nodata" class="ui right floated primary button disabled">Aggiorna dati</button><button ng-click="apriUrl('{{privacy_policy}}');" class="ui right floated secondary button">informativa privacy</button></div></form></div></div>
+
+<div class="scrollable">
+  <div class="ui clearing segment aggiornamento">
+    <form class="ui form">
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="azienda">Azienda per cui si lavora*</div>
+        <input placeholder="azienda*" ng-model="aggiornamento.azienda" name="azienda" id="azienda"/>
+      </div>
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="nome">Nome*</div>
+        <input placeholder="Nome*" ng-model="aggiornamento.nome" name="nome" id="nome"/>
+      </div>
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="cognome">Cognome*</div>
+        <input placeholder="Cognome*" ng-model="aggiornamento.cognome" name="cognome" id="cognome"/>
+      </div>
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="telefono">Num di telefono*</div>
+        <input placeholder="Num di telefono" ng-model="aggiornamento.telefono" name="telefono" id="telefono"/>
+      </div>
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="email">E-mail*</div>
+        <input placeholder="E-mail" ng-model="aggiornamento.email" name="email" id="email"/>
+      </div>
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="indirizzo">Indirizzo*</div>
+        <input placeholder="Indirizzo*" ng-model="aggiornamento.indirizzo" name="indirizzo" id="indirizzo"/>
+      </div>
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="cap">CAP*</div>
+        <input placeholder="CAP*" ng-model="aggiornamento.cap" name="cap" id="cap"/>
+      </div>
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="citta">Città*</div>
+        <input placeholder="Città*" ng-model="aggiornamento.citta" name="citta" id="citta"/>
+      </div>
+      <div class="field" ng-if="!nodata">
+        <div class="label" for="provincia">Provincia*</div>
+        <select class="ui dropdown" ng-model="aggiornamento.provincia" name="provincia" id="provincia" ng-options="item.id as item.prov for item in province"></select>
+      </div>
+      <div class="field">
+        <div class="ui icon red message" ng-if="validazione"> <i class="warning sign icon"></i>
+          <div class="content">
+            <div class="header">Si è verificato un errore</div>
+            <p>{{validazione}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <button class="ui right floated primary button" ng-click="aggiornati();" ng-if="!nodata" ng-class="{loading:loading}">Aggiorna dati</button>
+        <button class="ui right floated primary button disabled" ng-if="nodata">Aggiorna dati</button>
+        <button class="ui right floated secondary button" ng-click="apriUrl('{{privacy_policy}}');">informativa privacy</button>
+      </div>
+    </form>
+  </div>
+</div>

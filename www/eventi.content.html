@@ -1,1 +1,13 @@
-<div id="eventiWrapper"><div id="scroller"><ul class="elenco"><li ng-show="!eventi.length" class="evento">Nessun evento nei prossimi giorni</li><li ng-repeat="evento in eventi|orderBy:'data_pubblicazione':true" class="evento"><img ng-src="http://app.bodiocenter.com{{evento.immagineThumb}}"/><p ng-bind-html="evento.descrizione|linky:'_system'"> </p><p ng-show="evento.allegato"><a href="http://app.bodiocenter.com{{evento.allegato}}" target="_system" class="full-width button">dettagli</a></p></li></ul></div></div><div class="indicatore"><span ng-repeat="evento in eventi" id="puntatore_{{$index}}"></span></div>
+
+<div id="eventiWrapper">
+  <div id="scroller">
+    <ul class="elenco">
+      <li class="evento" ng-show="!eventi.length">Nessun evento nei prossimi giorni</li>
+      <li class="evento" ng-repeat="evento in eventi|orderBy:'data_pubblicazione':true"><img ng-src="http://app.bodiocenter.com{{evento.immagineThumb}}"/>
+        <p ng-bind-html="evento.descrizione|linky:'_system'"> </p>
+        <p ng-show="evento.allegato"><a class="full-width button" href="http://app.bodiocenter.com{{evento.allegato}}" target="_system">dettagli</a></p>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="indicatore"><span ng-repeat="evento in eventi" id="puntatore_{{$index}}"></span></div>

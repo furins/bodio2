@@ -1,1 +1,23 @@
-<div class="scrollable"><div class="ui clearing segment scontrini"><form id="invia_scontrino" onsubmit="invia_scontrino();" class="ui form"><div class="basic segment"><h3>Carica foto degli scontrini e guadagna punti!</h3></div><img src="img/fotografa.png" style="width: 100%; max-width: 400px; margin: 0 auto;" class="ui image"/><div id="testo_capture" class="basic segment"></div><div class="field"><label for="capture"><i class="photo icon"></i>Carica scontrino</label><br/><input type="file" accept="image/*" id="capture" name="immagine" style="width:0" class="inputfile"/><input type="hidden" id="invio_scontrino_card" name="card" value="{{aggiornamento.telefono}}"/><input type="hidden" id="invio_scontrino_cc" name="cc" value="6"/></div><div class="field"><input type="submit" value="Trasmetti l'immagine" class="ui fluid primary button"/></div><div id="scontrini_load" class="basic segment"><div class="ui active centered inline loader"></div></div></form></div></div>
+
+<div class="scrollable">
+  <div class="ui clearing segment scontrini">
+    <form class="ui form" id="invia_scontrino" onsubmit="invia_scontrino();">
+      <div class="basic segment">
+        <h3>Carica foto degli scontrini e guadagna punti!</h3>
+      </div><img class="ui image" src="img/fotografa.png" style="width: 100%; max-width: 400px; margin: 0 auto;"/>
+      <div class="basic segment" id="testo_capture"></div>
+      <div class="field">
+        <label for="capture"><i class="photo icon"></i>Carica scontrino</label><br/>
+        <input class="inputfile" type="file" accept="image/*" id="capture" name="immagine" style="width:0"/>
+        <input type="hidden" id="invio_scontrino_card" name="card" value="{{aggiornamento.telefono}}"/>
+        <input type="hidden" id="invio_scontrino_cc" name="cc" value="6"/>
+      </div>
+      <div class="field">
+        <input class="ui fluid primary button" type="submit" value="Trasmetti l'immagine"/>
+      </div>
+      <div class="basic segment" id="scontrini_load">
+        <div class="ui active centered inline loader"></div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+@import (inline) "./semantic.min.css"; //@import "../../../semantic/src/theme.config";
+@import "icons.less";
+[class*=" icon-"],
+[class^="icon-"] {
+    font-size: 18px;
+}
+.sidebar-icon {
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+}
+.not-loaded > .pusher {
+    #navbar,
+    .pagina {
+        opacity: 0;
+    }
+}
+.small {
+    font-size: 75%;
+}
+.text-center {
+    text-align: center!important;
+}
+.text-left {
+    text-align: left!important;
+}
+.text-right {
+    text-align: right!important;
+}
+.no-padding {
+    padding: 0 !important;
+}
+.no-padding-bottom {
+    padding-bottom: 0 !important;
+}
+.no-padding-top {
+    padding-top: 0 !important;
+}
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+.no-margin-top {
+    margin-top: 0 !important;
+}
+.padding {
+    padding: 10px;
+}
+.pagina {
+    margin-top: 46px;
+}
+#posizioneNegozio {
+    margin: auto;
+}
+.fullscreen {
+    height: 100vh!important;
+}
+#qrcode > img {
+    margin: auto;
+}
+.promozione_img {
+    margin: auto;
+    display: block;
+}
+.ui.corner.label .number {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+    // stili copiati da .ui.corner.label .icon
+    cursor: default;
+    position: relative;
+    top: 0.64285714em;
+    left: 0.78571429em;
+    font-size: 1.14285714em;
+    margin: 0;
+    width: auto;
+    display: inline-block;
+    backface-visibility: hidden;
+    opacity: 1;
+    height: 1em;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: inherit;
+    text-align: center;
+    speak: none;
+}
+
+html.windowsPhone .logo,
+html.windowsPhone .menu.title {
+    max-width: calc(100% - 96px);
+}
+
+html.windowsPhone .menu.title {
+    margin-left: -50%;
+}
+
+html.windowsPhone body.home .main.menu .toggle_sidebar {
+    position: absolute;
+    right: 0;
+}
+
+html.windowsPhone body.home {
+    max-width: none;
+}
+
+html.windowsPhone body.home .logo {
+    min-width: 200px;
+}
+
+//
+// html.windowsPhone .main.menu {
+//     display: table;
+// }
+//
+// html.windowsPhone .main.menu > .ui.icon,
+// html.windowsPhone .main.menu > .menu {
+//     display: table-cell;
+// }
+
+@import (inline) "./photoswipe.css";
+@import (inline) "./default-skin/default-skin.css";
+@import "./defaulttheme.less";
+@import "./theme.less";

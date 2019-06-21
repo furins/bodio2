@@ -1,1 +1,16 @@
-<div class="ui equal width center aligned padded grid"><div class="row bordered buttons"><div class="eight wide column"><div ng-click="aggiorna_mappa(-1);" class="ui button fluid pinterrato">Interrato</div></div><div class="eight wide column"><div ng-click="aggiorna_mappa(0);" class="ui button fluid yellow pesterno">Esterno</div></div></div></div><div id="schede" class="ui segment fullscreen"><div class="mappa"><div><img src="img/parcheggi_sopra@2x.png" width="320px" class="mappa-zoomabile cliccabile"/><img src="img/icons/location.png" class="punto-mappa"/></div></div></div>
+
+<div class="ui equal width center aligned padded grid">
+  <div class="row bordered buttons">
+    <div class="eight wide column">
+      <div class="ui button fluid pinterrato" ng-click="aggiorna_mappa(-1);">Interrato</div>
+    </div>
+    <div class="eight wide column">
+      <div class="ui button fluid yellow pesterno" ng-click="aggiorna_mappa(0);">Esterno</div>
+    </div>
+  </div>
+</div>
+<div class="ui segment fullscreen" id="schede">
+  <div class="mappa">
+    <div><img class="mappa-zoomabile cliccabile" src="img/parcheggi_sopra@2x.png" width="320px"/><img class="punto-mappa" src="img/icons/location.png"/></div>
+  </div>
+</div>
