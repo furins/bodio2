@@ -1,0 +1,46 @@
+
+#emergenzawrapper {
+	height: 0;
+	z-index: 2;
+	position:absolute;
+    top: @header-height;
+	left:0;
+	width: 100%;
+	overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+#emergenza  {
+	height: auto;
+	padding: 10px 0;
+    width: 100%;
+    background-color: fade(@tint-color1, 90%);
+	color: #fff;
+	vertical-align: middle;
+	h3 {
+		margin: 1em 0;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	i {
+		font-size: 150%;
+		padding-right: 1em;
+	}
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		line-height: 24px;
+	}
+
+	li {
+		list-style-type: none;
+		border-top: 1px solid lighten(@tint-color1, 1%);
+		border-bottom: 1px solid darken(@tint-color1, 1%);
+		padding: 5px;
+
+	}
+}

@@ -54011,137 +54011,35 @@ var backgroundDownloadAll = function($http, force) {
     genericModel.lista($http, 'shoppingcenters', force, shopping_center_id);
 };
 function onError(error) {
-    console.log('code: ' + error.code + '\n' +
-        'message: ' + error.message + '\n');
-}
-
-if (/iemobile/i.test(navigator.userAgent)) {
-    $('html').addClass('windowsPhone');
+  console.log(
+    "code: " + error.code + "\n" + "message: " + error.message + "\n"
+  );
 }
 
 var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-if (iOS !== true) {
-    // var viewportScale = 1 / window.devicePixelRatio;
-    // document.getElementsByName("viewport")[0].setAttribute("content","user-scalable=no, initial-scale="+viewportScale+", minimum-scale=0.2, maximum-scale=3, width=device-width, height=device-height, target-densitydpi=device-dpi");
-}
 
 var onDeviceReady = function($http, $scope, $interval) {
-    console.log("primo event listener");
+  console.log("primo event listener");
 
-    try {
-        StatusBar.hide();
-        console.log('nascondo la status bar');
-    } catch (e) {
-        console.log(e);
-    }
+  try {
+    StatusBar.hide();
+    console.log("nascondo la status bar");
+  } catch (e) {
+    console.log(e);
+  }
 
-    var push = PushNotification.init({
-        android: {
-            senderID: scc_customizations.senderID,
-            clearNotifications: "true"
-        },
-        ios: {
-            alert: "true",
-            badge: "true",
-            sound: "true",
-            clearBadge: "true"
-        },
-        windows: {}
-    });
+  document.addEventListener(
+    "resume",
+    function() {
+      console.log("app resumes");
+    },
+    false
+  );
 
-
-
-    // push.on('notification', function(data) {
-    //     // data.message,
-    //     // data.title,
-    //     // data.count,
-    //     // data.sound,
-    //     // data.image,
-    //     // data.additionalData
-    //     // if ($.inArray(device.platform, ['iOS', 'iPhone', 'iPad', 'iPhone Simulator', 'iPad Simulator']) >= 0) {
-    //     //     if (typeof(push) !== 'undefined') {
-    //     //         push.setApplicationIconBadgeNumber(function(n) {
-    //     //             console.log('acquisito il numero di badge attivi');
-    //     //             push.setApplicationIconBadgeNumber(function() {
-    //     //                 console.log('numero di badge aggiornato');
-    //     //             }, function() {
-    //     //                 console.log('error');
-    //     //             }, n);
-    //     //         })
-    //     //
-    //     //     } else {
-    //     //         console.log('push badges non abilitato al di fuori di ios');
-    //     //     }
-    //     // }
-    // });
-    //
-    push.on('error', function(e) {
-        console.log(e.message);
-    });
-
-    locationService = navigator.geolocation; // cordova geolocation plugin
-    if (typeof(device) !== 'undefined') {
-        $scope.$apply(function() {
-
-            $scope.soloiOS = ($.inArray(device.platform, ['iOS',
-                'iPhone', 'iPad', 'iPhone Simulator',
-                'iPad Simulator'
-            ]) >= 0);
-
-        });
-
-        $('html').addClass(device.platform);
-
-        if (($.inArray(device.platform, ['iOS', 'iPhone', 'iPad',
-                'iPhone Simulator', 'iPad Simulator'
-            ]) >= 0) && (parseInt(device.version.split('.')[0]) >= 7)) {
-            console.log("sto utilizzando iOS7");
-            console.log(device.platform);
-            console.log(device.version);
-            $('html').addClass('ios7');
-        }
-
-        if (($.inArray(device.platform, ['Android']) >= 0) && (parseInt(
-                device.version.split('.')[0]) <= 4) && (parseInt(device.version
-                .split('.')[1]) <= 4)) {
-            // console.log("sto utilizzando un vecchio android");
-            $('html').addClass('androidBrowser');
-        }
-
-
-        if ($.inArray(device.platform, ['WinCE', 'Win32NT']) >= 0) {
-            // console.log("sto utilizzando un vecchio android");
-            $('html').addClass('windowsPhone');
-            window.alert = navigator.notification.alert; // serve a windows phones
-        }
-    }
-
-    var onSuccess = function(position) {
-        gpsModule.positionChanged(position.coords, $scope);
-    };
-
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        console.log('code: ' + error.code + '\n' + 'message: ' + error.message +
-            '\n');
-    }
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
-    // https://github.com/christocracy/cordova-plugin-background-geolocation
-    navigator.geolocation.getCurrentPosition(function(position) {
-        gpsModule.positionChanged(position.coords, $scope);
-    }, onError);
-
-    document.addEventListener("resume", function() {
-        console.log("app resumes");
-    }, false);
-
-    console.log("inizializzazione terminata");
-    if (typeof(navigator.splashscreen) !== 'undefined') {
-        navigator.splashscreen.hide();
-    }
-
+  console.log("inizializzazione terminata");
+  if (typeof navigator.splashscreen !== "undefined") {
+    navigator.splashscreen.hide();
+  }
 };
 var app = angular.module('app', ['ui.router', 'ngTouch', 'ngSanitize', 'ngStorage']);
 
@@ -56521,55 +56419,6 @@ function chiama(event, conferma) {
         window.open(numero, '_system')
     }
 }
-var gpsModule = (function() {
-  'use strict';
-
-
-
-  var checkInProgress;
-  var precisione_coordinate = 7;
-
-  function updatePosition($scope, onsuccess) {
-    locationService.getCurrentPosition(
-      function(position) {
-        if (typeof(onsuccess) !== 'undefined') {
-          onsuccess(position);
-        } // funzione passata direttamente all'atto della chiamata
-        gpsModule.positionChanged({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        }, $scope);
-
-      },
-      function(error) {
-        console.log("errore nell'ottenere le coordinate: " + error.code);
-        console.log("errore nell'ottenere le coordinate: " + error.message);
-        if (error.code == error.PERMISSION_DENIED) {
-          console.log("non è consentito usare il geoposition html5");
-        }
-      }, {
-        enableHighAccuracy: true,
-        timeout: timeout_gps
-      }
-    );
-  }
-
-
-  /**
-   * This would be your own callback for Ajax-requests after POSTing background geolocation to your server.
-   */
-  var positionChanged = function(location, $scope) {
-    localStorage.setItem('coordinate', JSON.stringify(location)); // occorre che riduciamo ai soli id/tipo per rispariare sul localstorage
-    var d = distanza(scc_customizations.latitude,scc_customizations.longitude, location.latitude, location.longitude);
-    $scope.distanza = "ti trovi a "+parseInt(d)+" Km da "+scc_customizations.nome;
-  };
-
-  return {
-    positionChanged: positionChanged,
-    updatePosition: updatePosition
-  };
-
-}());
 function linkify(string, buildHashtagUrl, includeW3, target, noFollow) {
   relNoFollow = "";
   if (noFollow) {
