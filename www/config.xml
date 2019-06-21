@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="it.indalo.bodio" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Bodio</name>
+    <description>
+        Applicazione per centri commerciali
+    </description>
+    <author email="sviluppo@dolomitiproject.it" href="https://www.dolomitiproject.it">
+        Dolomiti Project
+    </author>
+    <preference name="permissions" value="none" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="windows-identity-name" value="PhonegapBuild.PGBDeveloper" />
+    <gap:plugin name="cordova-plugin-camera" source="npm">
+        <param name="CAMERA_USAGE_DESCRIPTION" value="The app may require the camera or the photolibrary in order to get pictures of user's invoices. The images are a proof the user has bought something at the shopping center. Pictures are destroyed after the proof has been validated." />
+        <param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="The app may require the camera or the photolibrary in order to get pictures of user's invoices. The images are a proof the user has bought something at the shopping center. Pictures are destroyed after the proof has been validated." />
+    </gap:plugin>
+    <plugin name="cordova-plugin-media-capture" source="npm">
+        <param name="CAMERA_USAGE_DESCRIPTION" value="The app may require the camera or the photolibrary in order to get pictures of user's invoices. The images are a proof the user has bought something at the shopping center. Pictures are destroyed after the proof has been validated." />
+        <param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="The app may require the camera or the photolibrary in order to get pictures of user's invoices. The images are a proof the user has bought something at the shopping center. Pictures are destroyed after the proof has been validated." />
+        <param name="MICROPHONE_USAGE_DESCRIPTION" value="The app does not use the microphone." />
+    </plugin>
+    <plugin name="cordova-plugin-console" source="npm" />
+    <plugin name="cordova-plugin-device" source="npm" />
+    <plugin name="cordova-plugin-device-motion" source="npm" />
+    <plugin name="cordova-plugin-device-orientation" source="npm" />
+    <plugin name="cordova-plugin-dialogs" source="npm" />
+    <plugin name="cordova-plugin-file" source="npm" />
+    <plugin name="cordova-plugin-file-transfer" source="npm" />
+    <plugin name="cordova-plugin-geolocation" source="npm">
+        <param name="GEOLOCATION_USAGE_DESCRIPTION" value="The app may use geolocation to calculate the distance from the shopping center." />
+    </plugin>
+    <plugin name="cordova-plugin-globalization" source="npm" />
+    <plugin name="cordova-plugin-inappbrowser" source="npm" />
+    <plugin name="cordova-plugin-media" source="npm">
+        <param name="MICROPHONE_USAGE_DESCRIPTION" value="The app does not use the microphone." />
+    </plugin>
+    <plugin name="cordova-plugin-network-information" source="npm" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" />
+    <plugin name="cordova-plugin-vibration" source="npm" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
+    <!-- icon src="ios.png" /-->
+    <platform name="android">
+        <!--icon density="ldpi" qualifier="ldpi" src="./res/icon/android/icon-36-ldpi.png" />
+        <icon density="mdpi" qualifier="mdpi" src="./res/icon/android/icon-48-mdpi.png" />
+        <icon density="hdpi" qualifier="hdpi" src="./res/icon/android/icon-72-hdpi.png" />
+        <icon density="xhdpi" qualifier="xhdpi" src="./res/icon/android/icon-96-xhdpi.png" />
+        <icon density="xxhdpi" qualifier="xxhdpi" src="./res/icon/android/icon-144-xxhdpi.png" />
+        <icon density="xxxhdpi" qualifier="xxxhdpi" src="./res/icon/android/icon-192-xxxhdpi.png" />
+        <splash qualifier="port-ldpi" src="./res/splashscreens/splash-320x200.png" />
+        <splash qualifier="port-mdpi" src="./res/splashscreens/splash-320x480.png" />
+        <splash qualifier="port-hdpi" src="./res/splashscreens/splash-480x800.png" />
+        <splash qualifier="port-xhdpi" src="./res/splashscreens/splash-720px1280.png" /-->
+        <preference name="fullscreen" value="false" />
+    </platform>
+    <platform name="ios">
+        <icon height="24" src="res/icon/ios/icon-24.png" width="24" />
+        <icon height="80" src="res/icon/ios/icon-40-2x.png" width="80" />
+        <icon height="40" src="res/icon/ios/icon-40.png" width="40" />
+        <icon height="100" src="res/icon/ios/icon-50-2x.png" width="100" />
+        <icon height="50" src="res/icon/ios/icon-50.png" width="50" />
+        <icon height="114" src="res/icon/ios/icon-57-2x.png" width="114" />
+        <icon height="57" src="res/icon/ios/icon-57.png" width="57" />
+        <icon height="120" src="res/icon/ios/icon-60-2x.png" width="120" />
+        <icon height="180" src="res/icon/ios/icon-60-3x.png" width="180" />
+        <icon height="60" src="res/icon/ios/icon-60.png" width="60" />
+        <icon height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
+        <icon height="72" src="res/icon/ios/icon-72.png" width="72" />
+        <icon height="152" src="res/icon/ios/icon-76-2x.png" width="152" />
+        <icon height="76" src="res/icon/ios/icon-76.png" width="76" />
+        <icon height="58" src="res/icon/ios/icon-small-2x.png" width="58" />
+        <icon height="29" src="res/icon/ios/icon-small.png" width="29" />
+        <splash height="480" src="res/splashscreens/splash-320x480.png" width="320" />
+        <splash height="960" src="res/splashscreens/splash-640x960.png" width="640" />
+        <splash height="1136" src="res/splashscreens/splash-640x1136.png" width="640" />
+        <splash height="1334" src="res/splashscreens/splash-750x1334.png" width="750" />
+        <splash height="2208" src="res/splashscreens/splash-1242x2208.png" width="1242" />
+        <splash height="1024" src="res/splashscreens/splash-768x1024.png" width="768" />
+        <splash height="2048" src="res/splashscreens/splash-1536x2048.png" width="1536" />
+        <splash height="768" src="res/splashscreens/splash-1024x768.png" width="1024" />
+        <splash height="1536" src="res/splashscreens/splash-2048x1536.png" width="2048" />
+        <splash src="res/splashscreens/Default@2x~universal~anyany.png" />
+        <splash src="res/splashscreens/Default@2x~universal~comany.png" />
+        <splash src="res/splashscreens/Default@2x~universal~comcom.png" />
+        <splash src="res/splashscreens/Default@3x~universal~anyany.png" />
+        <splash src="res/splashscreens/Default@3x~universal~anycom.png" />
+        <splash src="res/splashscreens/Default@3x~universal~comany.png" />
+        <preference name="SplashScreenDelay" value="6000" />
+    </platform>
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#FFFFFA" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <gap:config-file parent="UIStatusBarHidden" platform="ios">
+        <true />
+    </gap:config-file>
+    <gap:config-file parent="UIViewControllerBasedStatusBarAppearance" platform="ios">
+        <false />
+    </gap:config-file>
+    <gap:config-file parent="CFBundleShortVersionString" platform="ios">
+        <string>120</string>
+    </gap:config-file>
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <gap:config-file overwrite="true" parent="NSCameraUsageDescription" platform="ios">
+        <string>The app may require the camera or the photolibrary in order to get pictures of user's invoices. The images are a proof the user has bought something at the shopping center. Pictures are destroyed after the proof has been validated.</string>
+    </gap:config-file>
+    <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="bingmaps:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <preference name="android-build-tool" value="gradle" />
+    <plugin name="phonegap-plugin-push" source="npm" spec="1.8.1">
+        <param name="SENDER_ID" value="381793796659" />
+    </plugin>
+    <plugin name="cordova-plugin-statusbar" spec="~2.1.3" />
+</widget>
