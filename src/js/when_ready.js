@@ -23,7 +23,7 @@ var onDeviceReady = function($http, $scope, $interval) {
     },
     false
   );
-
+  window.open = cordova.InAppBrowser.open;
   console.log("inizializzazione terminata");
   if (typeof navigator.splashscreen !== "undefined") {
     navigator.splashscreen.hide();

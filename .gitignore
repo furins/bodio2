@@ -3,3 +3,7 @@ plugins
 hooks
 .DS_Store
 src/node_modules
+node_modules
+/package-lock.json
+/.dir-locals.el
+/package.json
