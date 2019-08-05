@@ -1,0 +1,10 @@
+-*- org -*-
+* per generare icone e splashscreen
+http://romannurik.github.io/AndroidAssetStudio/index.html
+https://pgicons.abiro.com/
+App Icon Set Creator
+* per compilare il codice
+#+BEGIN_SRC shell
+jenv exec phonegap run android
+#+END_SRC
+
